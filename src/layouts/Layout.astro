@@ -1,0 +1,41 @@
+---
+import { getEntry } from "astro:content";
+import Wrapper from "./Wrapper.astro";
+
+export type Props = {
+  title?: string;
+  description?: string;
+  image?: { src: string; alt: string };
+  pageType?: "article" | "website";
+};
+const site = (await getEntry("site", "data")).data;
+
+const {
+  title = site.title,
+  description = site.description,
+  image = site.image,
+  pageType = "website",
+} = Astro.props;
+
+const resolvedImage = {
+  src: new URL(image.src, Astro.site).toString(),
+  alt: image.alt,
+};
+
+const canonicalURL = new URL(Astro.request.url, Astro.site);
+---
+
+<Wrapper
+  class="px-4 py-6"
+  name={title}
+  title={title}
+  description={description}
+  theme={"#1e293b"}
+  twitter={{ handle: "_q1b_" }}
+  og={{ type: pageType }}
+  canonicalURL={canonicalURL}
+  image={resolvedImage}
+>
+  <header class=""></header>
+  <slot />
+</Wrapper>

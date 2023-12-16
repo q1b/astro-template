@@ -1,0 +1,14 @@
+name: Sukhpreet Singh
+about: Yoga Instructor, Software Developer, Content Creator and Basketball Player
+image:
+  src: /profile-image/image/src.jpeg
+  alt: Avatar
+links:
+  - platform: Linkedin
+    label: Linkedin
+    link: linkedin.com/in/q1b
+    me: linkedin.com/in/q1b
+  - platform: Github
+    label: Github
+    link: https://github.com/q1b
+    me: https://github.com/q1b
